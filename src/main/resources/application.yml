@@ -1,0 +1,28 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /jscrapy
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: JScrapy
+  datasource:
+    url: jdbc:mysql://localhost:3306/j_scrapy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-test-query: select 1 from dual
+      auto-commit: true
+      maximum-pool-size: 10
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/j_scrapy
+      database: j_scrapy
+      username:
+      password:
+  activemq:
+    broker-url: tcp://localhost:61616
