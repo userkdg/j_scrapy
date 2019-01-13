@@ -13,6 +13,7 @@ import cn.kindg.jooq.generator.tables.records.ScrapyDataRecord;
 
 import javax.annotation.Generated;
 
+import org.jooq.Identity;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
 
@@ -35,6 +36,9 @@ public class Keys {
     // IDENTITY definitions
     // -------------------------------------------------------------------------
 
+    public static final Identity<ScrapyAccountRecord, Integer> IDENTITY_SCRAPY_ACCOUNT = Identities0.IDENTITY_SCRAPY_ACCOUNT;
+    public static final Identity<ScrapyDataRecord, Integer> IDENTITY_SCRAPY_DATA = Identities0.IDENTITY_SCRAPY_DATA;
+    public static final Identity<ScrapyDataDetailRecord, Integer> IDENTITY_SCRAPY_DATA_DETAIL = Identities0.IDENTITY_SCRAPY_DATA_DETAIL;
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
@@ -52,6 +56,12 @@ public class Keys {
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
     // -------------------------------------------------------------------------
+
+    private static class Identities0 {
+        public static Identity<ScrapyAccountRecord, Integer> IDENTITY_SCRAPY_ACCOUNT = Internal.createIdentity(ScrapyAccount.SCRAPY_ACCOUNT, ScrapyAccount.SCRAPY_ACCOUNT.ID);
+        public static Identity<ScrapyDataRecord, Integer> IDENTITY_SCRAPY_DATA = Internal.createIdentity(ScrapyData.SCRAPY_DATA, ScrapyData.SCRAPY_DATA.ID);
+        public static Identity<ScrapyDataDetailRecord, Integer> IDENTITY_SCRAPY_DATA_DETAIL = Internal.createIdentity(ScrapyDataDetail.SCRAPY_DATA_DETAIL, ScrapyDataDetail.SCRAPY_DATA_DETAIL.ID);
+    }
 
     private static class UniqueKeys0 {
         public static final UniqueKey<ScrapyAccountRecord> KEY_SCRAPY_ACCOUNT_PRIMARY = Internal.createUniqueKey(ScrapyAccount.SCRAPY_ACCOUNT, "KEY_scrapy_account_PRIMARY", ScrapyAccount.SCRAPY_ACCOUNT.ID);

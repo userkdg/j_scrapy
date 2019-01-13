@@ -17,6 +17,7 @@ import javax.annotation.Generated;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
+import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
@@ -41,7 +42,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ScrapyAccount extends TableImpl<ScrapyAccountRecord> {
 
-    private static final long serialVersionUID = -711898432;
+    private static final long serialVersionUID = -1116981813;
 
     /**
      * The reference instance of <code>j_scrapy.scrapy_account</code>
@@ -59,7 +60,7 @@ public class ScrapyAccount extends TableImpl<ScrapyAccountRecord> {
     /**
      * The column <code>j_scrapy.scrapy_account.id</code>.
      */
-    public final TableField<ScrapyAccountRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<ScrapyAccountRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>j_scrapy.scrapy_account.username</code>.
@@ -128,6 +129,14 @@ public class ScrapyAccount extends TableImpl<ScrapyAccountRecord> {
     @Override
     public List<Index> getIndexes() {
         return Arrays.<Index>asList(Indexes.SCRAPY_ACCOUNT_PRIMARY);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Identity<ScrapyAccountRecord, Integer> getIdentity() {
+        return Keys.IDENTITY_SCRAPY_ACCOUNT;
     }
 
     /**

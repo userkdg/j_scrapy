@@ -17,6 +17,7 @@ import javax.annotation.Generated;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
+import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
@@ -41,7 +42,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ScrapyDataDetail extends TableImpl<ScrapyDataDetailRecord> {
 
-    private static final long serialVersionUID = -1459731336;
+    private static final long serialVersionUID = 2019793918;
 
     /**
      * The reference instance of <code>j_scrapy.scrapy_data_detail</code>
@@ -59,7 +60,7 @@ public class ScrapyDataDetail extends TableImpl<ScrapyDataDetailRecord> {
     /**
      * The column <code>j_scrapy.scrapy_data_detail.id</code>.
      */
-    public final TableField<ScrapyDataDetailRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<ScrapyDataDetailRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>j_scrapy.scrapy_data_detail.title</code>.
@@ -133,6 +134,14 @@ public class ScrapyDataDetail extends TableImpl<ScrapyDataDetailRecord> {
     @Override
     public List<Index> getIndexes() {
         return Arrays.<Index>asList(Indexes.SCRAPY_DATA_DETAIL_PRIMARY);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Identity<ScrapyDataDetailRecord, Integer> getIdentity() {
+        return Keys.IDENTITY_SCRAPY_DATA_DETAIL;
     }
 
     /**
